@@ -237,7 +237,15 @@ const global = new Environment({
   cos: Math.cos,
   tan: Math.tan,
   log: (n, base) => Math.log(n) / Math.log(base),
-  e: Math.exp,
+  arcsin: Math.asin,
+  arccos: Math.acos,
+  arctan: Math.atan,
+  sinh: Math.sinh,
+  cosh: Math.cosh,
+  tanh: Math.tanh,
+  sqrt: Math.sqrt,
+  pi: Math.PI,
+  e: Math.E,
 });
 
 const compile = (string) => {
