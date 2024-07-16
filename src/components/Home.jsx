@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import compile from "../lib/Compiler"
+import Euler from "../lib/Euler"
+import Runge_Kutta from "../lib/Runge-Kutta";
+import Adams_Bashforth from "../lib/Adams-Bashforth";
 
 function Home() {
   const [x, setX] = useState(0.0)
@@ -16,7 +19,7 @@ function Home() {
 
   function generateRes() {
     const fx = compile(f);
-    setR(fx({ t: x }));
+    setR(Adams_Bashforth(fx, 0, 1, 0.4, 0.1));
   }
 
   return (

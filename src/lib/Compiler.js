@@ -236,7 +236,7 @@ const global = new Environment({
   sin: Math.sin,
   cos: Math.cos,
   tan: Math.tan,
-  log: (n, base) => Math.log(n) / Math.log(base),
+  ln: Math.log,
   arcsin: Math.asin,
   arccos: Math.acos,
   arctan: Math.atan,
