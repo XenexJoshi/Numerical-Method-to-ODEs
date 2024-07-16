@@ -105,7 +105,7 @@ class Parser {
 
       while (this.#is(',')) {
         this.#eat(',');
-        args, push(this.#EXPRESSION());
+        args.push(this.#EXPRESSION());
       } this.#eat(')');
       return {
         type: 'Call',
@@ -163,7 +163,7 @@ class Parser {
     }
 
     if (this.#is('STRING')) {
-      const expr = this.#eat('STRING').token(1, -1);
+      const expr = this.#eat('STRING').token.slice(1, -1);
       new Parser(new Lexer(Token)).read(expr);
       return {
         type: 'Expression',
