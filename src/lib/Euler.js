@@ -22,7 +22,7 @@ function Euler(f, t0, y0, dest, step) {
 
     t_tab.push(t_temp);
     y_tab.push(y_temp);
-  } return y_tab[y_tab.length - 1];
+  } return [t_tab, y_tab];
 }
 
 export default Euler;
