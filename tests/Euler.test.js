@@ -104,7 +104,6 @@ describe("Test cases for Euler approximation", () => {
     const y_table = [2, 2.9093, 4.7866, 7.3901, 10.7497, 14.9454, 20.0459,
       26.0956, 33.1194];
     expect(checkEquality(tab[0], x_table)).toBe(true);
-    console.log(tab[1]);
     expect(checkEquality(tab[1], y_table)).toBe(true);
   });
 });

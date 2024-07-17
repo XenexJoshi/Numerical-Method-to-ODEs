@@ -37,9 +37,9 @@ function Runge_Kutta(f, t0, y0, dest, step) {
   let t_temp = parseFloat(t0);
   let y_temp = parseFloat(y0);
   let t_tab = [t_temp];
-  let y_tab = [t_temp];
+  let y_tab = [y_temp];
 
-  for (let i = parseFloat(t0); i < parseFloat(dest); i += h) {
+  for (let i = parseFloat(t0) + h; i <= parseFloat(dest); i += h) {
     let curr = next_step(f, t_temp, y_temp, h);
     t_temp = curr[0];
     y_temp = curr[1];
