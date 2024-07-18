@@ -95,7 +95,6 @@ describe("Test cases for Runge-Kutta approximation", () => {
     const y_table = [-1, 0.6301, 3.2381, 5.0567, 5.7962, 6.1891, 6.7083,
       7.9824, 10.4555];
     expect(checkEquality(tab[0], x_table)).toBe(true);
-
     expect(checkEquality(tab[1], y_table)).toBe(true);
   });
 
