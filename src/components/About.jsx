@@ -3,6 +3,7 @@ function About() {
     <>
       <div className="heading">
         <h2> About Us </h2>
+        <br />
         <p>
           <i>Tackle complex first-order differential
             equations at ease, with the numerical methods of your choice.
@@ -30,6 +31,7 @@ function About() {
 
       <div className="references">
         <h3> References</h3>
+        <br />
         <p> For further references on how each numerical approximation, check out: </p>
         <br />
         <ul>
