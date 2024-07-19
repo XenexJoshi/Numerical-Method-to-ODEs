@@ -6,6 +6,7 @@
 
 body {
   margin: 0;
+  background-color: black;
 }
 
 .navbar {
@@ -67,4 +68,43 @@ body {
 
 .navbar li:hover {
   background-color: rgb(64, 64, 174);
+}
+
+.heading {
+  text-align: center;
+  margin-top: 2rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  font-size: 1.2rem;
+  color: aliceblue;
+}
+
+.about {
+  text-align: center;
+  margin-top: 2rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  font-size: 1.2rem;
+  color: aliceblue;
+}
+
+.references {
+  text-align: center;
+  margin-top: 2rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  font-size: 1.2rem;
+  color: aliceblue;
+}
+
+.references ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 1.2rem;
+  color: aliceblue;
+}
+
+.references ul li a {
+  color: aliceblue;
 }
