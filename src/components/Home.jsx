@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 
+/* [Home] is the page component of the loading-page of the website that contains
+an introductory visual, and animation component for the front page of the program.
+*/
 function Home() {
   return (
     <>

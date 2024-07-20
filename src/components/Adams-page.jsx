@@ -3,6 +3,8 @@ import Plot from "react-plotly.js";
 import compile from "../lib/Compiler";
 import Adams_Bashforth from "../lib/Adams-Bashforth";
 
+/* [AdamsPage] is the page component corresponding to the Adams-Bashforth Linear
+ Multistep Approximation calculator.*/
 function AdamsPage() {
   const [fx, Set_fx] = useState("");
   const [init_t, Set_init_t] = useState("");

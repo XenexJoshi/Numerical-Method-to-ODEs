@@ -3,6 +3,8 @@ import Plot from "react-plotly.js";
 import compile from "../lib/Compiler";
 import Runge_Kutta from "../lib/Runge-Kutta";
 
+/* [RungePage] is the page component corresponding to the Runge-Kutta 
+Approximation calculator.*/
 function RungePage() {
   const [fx, Set_fx] = useState("");
   const [init_t, Set_init_t] = useState("");

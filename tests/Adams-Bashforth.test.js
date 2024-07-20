@@ -10,7 +10,7 @@ function checkEquality(tab1, tab2) {
   } return true;
 }
 
-describe("Test cases for Runge-Kutta approximation", () => {
+describe("Test cases for Adams-Bashforth approximation", () => {
   test("Testing case with integer step-size", () => {
     const fn = compile("2 * t - y");
     let tab = Adams_Bashforth(fn, 0, 1, 5, 1);

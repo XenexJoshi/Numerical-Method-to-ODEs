@@ -3,6 +3,8 @@ import Plot from "react-plotly.js";
 import compile from "../lib/Compiler";
 import Euler from "../lib/Euler";
 
+/* [EulerPage] is the page component corresponding to the Euler Approximation 
+calculator.*/
 function EulerPage() {
   const [fx, Set_fx] = useState("");
   const [init_t, Set_init_t] = useState("");
