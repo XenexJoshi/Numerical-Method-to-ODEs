@@ -1,34 +1,73 @@
-import React, { useState } from "react";
-import compile from "../lib/Compiler"
-import Euler from "../lib/Euler"
-import Runge_Kutta from "../lib/Runge-Kutta";
-import Adams_Bashforth from "../lib/Adams-Bashforth";
+import { Link } from "react-router-dom";
 
 function Home() {
-  const [x, setX] = useState(0.0)
-  const [result, setR] = useState(0.0);
-  const [f, setFunct] = useState("");
-
-  function handleX(event) {
-    setX(parseFloat(event.target.value));
-  }
-
-  function handleText(event) {
-    setFunct(event.target.value);
-  }
-
-  function generateRes() {
-    const fx = compile(f);
-    setR(Adams_Bashforth(fx, 0, 1, 0.4, 0.1));
-  }
-
   return (
-    <div>
-      <input type="text" placeholder="0" value={x} onChange={handleX} />
-      <input type="text" value={f} onChange={handleText} />
-      <button onClick={generateRes}> Click </button>
-      <p> {result} </p>
-    </div>
+    <>
+      <div className="container">
+        <div className="bubbles">
+          <span style={{ "--i": 11 }}></span>
+          <span style={{ "--i": 24 }}></span>
+          <span style={{ "--i": 13 }}></span>
+          <span style={{ "--i": 30 }}></span>
+          <span style={{ "--i": 22 }}></span>
+          <span style={{ "--i": 19 }}></span>
+          <span style={{ "--i": 16 }}></span>
+          <span style={{ "--i": 24 }}></span>
+          <span style={{ "--i": 23 }}></span>
+          <span style={{ "--i": 43 }}></span>
+          <span style={{ "--i": 33 }}></span>
+          <span style={{ "--i": 21 }}></span>
+          <span style={{ "--i": 15 }}></span>
+          <span style={{ "--i": 16 }}></span>
+          <span style={{ "--i": 27 }}></span>
+          <span style={{ "--i": 32 }}></span>
+          <span style={{ "--i": 16 }}></span>
+          <span style={{ "--i": 30 }}></span>
+          <span style={{ "--i": 20 }}></span>
+          <span style={{ "--i": 43 }}></span>
+          <span style={{ "--i": 9 }}></span>
+          <span style={{ "--i": 20 }}></span>
+          <span style={{ "--i": 31 }}></span>
+          <span style={{ "--i": 11 }}></span>
+          <span style={{ "--i": 15 }}></span>
+          <span style={{ "--i": 19 }}></span>
+          <span style={{ "--i": 24 }}></span>
+          <span style={{ "--i": 32 }}></span>
+          <span style={{ "--i": 16 }}></span>
+          <span style={{ "--i": 9 }}></span>
+          <span style={{ "--i": 22 }}></span>
+          <span style={{ "--i": 37 }}></span>
+          <span style={{ "--i": 18 }}></span>
+          <span style={{ "--i": 19 }}></span>
+          <span style={{ "--i": 35 }}></span>
+          <span style={{ "--i": 9 }}></span>
+          <span style={{ "--i": 12 }}></span>
+          <span style={{ "--i": 15 }}></span>
+          <span style={{ "--i": 24 }}></span>
+          <span style={{ "--i": 25 }}></span>
+        </div>
+      </div >
+
+      <div className="home_header">
+        <h3> Numerical Methods to First-Order Differential Equations </h3>
+        <br />
+        <p>
+          <i>
+            Tackle complex first-order differential equations with ease.
+          </i>
+        </p>
+        <br />
+        <ul>
+          <li>
+            <li> <Link to="/Euler"> Euler Approximation </Link> </li>
+            <li> <Link to="/Runge-Kutta"> Runge-Kutta Method</Link> </li>
+            <li> <Link to="/Adams-Bashforth"> Adams-Bashforth  Multistep Method</Link> </li>
+          </li>
+        </ul>
+      </div>
+
+
+    </>
   )
 }
 

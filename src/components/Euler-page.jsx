@@ -31,6 +31,15 @@ function EulerPage() {
     Set_step(event.target.value);
   }
 
+  function reset() {
+    Set_fx("");
+    Set_init_t("");
+    Set_init_y("");
+    Set_dest("");
+    Set_step("");
+    set_table([[], []]);
+  }
+
   function generateResult() {
     let t0_fn = compile(init_t);
     let y0_fn = compile(init_y);
@@ -50,32 +59,53 @@ function EulerPage() {
   return (
     <>
       <div className="title">
-        <h2> Euler Method:</h2>
+        <h2> Euler's Method Calculator:</h2>
       </div>
       <div className="wrapper">
-        <div className="Euler-handler">
-          <h3> Enter input function f'(x): </h3>
-          y' : <input className="fx_input" type=" text" placeholder="f(t, y)" value={fx} onChange={handleFunc} />
-          <br />
-          <p>
-            <i> (Use parenthesis, if necessary, to emphasize the order of operation within
-              the function. Additionally, the parameters of the function are set to
-              t and y. Please check the Help page for additional information on how
-              to enter a valid expression into the calculator.)</i>
-          </p>
-          <h3> Enter initial conditions (t, y): </h3>
-          t: <input type="text" placeholder="0" value={init_t} onChange={handle_init_t} />
-          y: <input type="text" placeholder="0" value={init_y} onChange={handle_init_y} />
-          <br />
-          <h3> Enter final t value: </h3>
-          t<sub>f</sub> : <input type="text" placeholder="0" value={dest} onChange={handle_dest} />
-          <br />
-          <h3> Enter the step size for computation: </h3>
-          h: <input type="text" placeholder="0" value={step} onChange={handle_step} />
-          <br />
-          <button className="compute" onClick={generateResult} > Compute </button>
+        <div className="handler">
+          <div className="card">
+            <p> This calculator generates an Euler approximate solution to the
+              input first-order differential equation y' = f(t, y).
+            </p>
+            <br />
+
+            <p>
+              <i>
+                Use parenthesis, if necessary, to emphasize the order of operation
+                within the function. Please check the Help page for additional
+                information on how to enter a valid expression into the calculator.
+              </i>
+            </p>
+          </div>
+
+          <div className="entry">
+            <p> Enter input function f'(x): </p>
+            y' = f(t, y) = <input className="fx_input" type=" text"
+              placeholder="f(t, y)" value={fx} onChange={handleFunc} />
+            <br />
+
+            <p> Enter initial conditions (t, y): </p>
+            t<sub>0 </sub>: <input type="text" placeholder="0" value={init_t}
+              onChange={handle_init_t} />
+            y<sub>0 </sub>: <input type="text" placeholder="0" value={init_y}
+              onChange={handle_init_y} />
+            <br />
+
+            <p> Enter final t value: </p>
+            t<sub>n </sub> : <input type="text" placeholder="0" value={dest}
+              onChange={handle_dest} />
+            <br />
+
+            <p> Enter the step-size: </p>
+            h: <input type="text" placeholder="0" value={step}
+              onChange={handle_step} />
+            <br />
+
+            <button className="compute" onClick={generateResult} > Compute </button>
+            <button className="clear" onClick={reset} > Clear </button>
+          </div>
         </div>
-        <br />
+
         <div className="plot">
           <Plot data={[
             {
@@ -87,7 +117,7 @@ function EulerPage() {
             }
           ]}
             layout={{
-              width: 530, height: 530, title: 'Euler Approximation of y(t)',
+              width: 580, height: 530, title: 'Euler Approximation of y(t)',
               font: "Calibri"
             }} />
         </div>
