@@ -1,6 +1,8 @@
-/* [Help] is the page component of the Help page that contains helpful instructions
-on how to use the different numerical approximation methods, and input functions
-into the textbox for the compiler to parse it successfully.*/
+/** 
+ * [Help] is the page component of the Help page that contains helpful instructions
+ * on how to use the different numerical approximation methods, and input functions
+ * into the textbox for the compiler to parse it successfully.
+ */
 function Help() {
   return (
     <>

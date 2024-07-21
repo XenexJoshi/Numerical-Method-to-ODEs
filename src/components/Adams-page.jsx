@@ -3,36 +3,93 @@ import Plot from "react-plotly.js";
 import compile from "../lib/Compiler";
 import Adams_Bashforth from "../lib/Adams-Bashforth";
 
-/* [AdamsPage] is the page component corresponding to the Adams-Bashforth Linear
- Multistep Approximation calculator.*/
+/** 
+ * [AdamsPage] is the page component corresponding to the Adams-Bashforth Linear
+ * Multistep Approximation calculator.
+ */
 function AdamsPage() {
+
+  /** 
+   * [fx] is the string representation of the input function that is compiled
+   * by the compiler to generate a usable function which allows variables to be 
+   * passed upon. 
+   */
   const [fx, Set_fx] = useState("");
+
+  /** 
+   * [init_t] is the t-coordinate of the initial condition of the differential 
+   * equation with starting value (t, y). 
+   */
   const [init_t, Set_init_t] = useState("");
+
+  /** 
+   * [init_y] is the y-coordinate of the initial condition of the differential 
+   * equation with starting value (t, y). 
+   */
   const [init_y, Set_init_y] = useState("");
+
+  /** 
+   * [dest] is the t-coordinate of the final point for evaluation the differential
+   * eqution [fx].
+   */
   const [dest, Set_dest] = useState("");
+
+  /**
+   * [step] is the interval between two successive points during the numerical
+   * approximation of the differentail equation [fx.]
+   */
   const [step, Set_step] = useState("");
+
+  /** [table] is a 2d table representing the output of the numerical approximation
+   * of [fx], where [table[0]] represents the t-coordinates of the graph, and 
+   * [table[1]] represents the y-coordinate of the graph.
+   */
   const [table, set_table] = useState([[], []]);
 
+  /**
+   * [handleFunc] handles the user input to the function textbox, and changes it
+   * accordingly.
+   */
   function handleFunc(event) {
     Set_fx(event.target.value);
   }
 
+  /**
+   * [handle_init_t] handles the user input to the initial t-coordinate, and 
+   * changes it accordingly.
+   */
   function handle_init_t(event) {
     Set_init_t(event.target.value);
   }
 
+  /**
+   * [handle_init_y] handles the user input to the initial y-coordinate, and 
+   * changes it accordingly.
+   */
   function handle_init_y(event) {
     Set_init_y(event.target.value);
   }
 
+  /**
+   * [handle_dest] handles the user input to the final t-coordinate, and changes 
+   * it accordingly.
+   */
   function handle_dest(event) {
     Set_dest(event.target.value);
   }
 
+  /**
+   * [handle_step] handles the user input to the step-size, and changes it
+   * accordingly.
+   */
   function handle_step(event) {
     Set_step(event.target.value);
   }
 
+  /**
+   * [reset] sets the function [fx], and user input values back to its initial
+   * state.
+   */
   function reset() {
     Set_fx("");
     Set_init_t("");
@@ -42,6 +99,11 @@ function AdamsPage() {
     set_table([[], []]);
   }
 
+  /**
+   * [generateResult] user the Euler-approximation function to generate the t-coordinates
+   * and y-coordinates from the approximation method, and assigns the resulting 
+   * values to [table].
+   */
   function generateResult() {
     let t0_fn = compile(init_t);
     let y0_fn = compile(init_y);
@@ -58,6 +120,10 @@ function AdamsPage() {
     set_table(result);
   }
 
+  /** 
+   * Generating the page layout and Adams-Bashforth multistep approximation 
+   * calculator functionality within the webpage.
+   */
   return (
     <>
       <div className="title">

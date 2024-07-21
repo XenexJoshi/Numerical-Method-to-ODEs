@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 
-/* [Navbar] is the component placed above all pages that allows the users to
-easily navigate to other pages, and services within the program.*/
+/**
+ * [Navbar] is the component placed above all pages that allows the users to
+ * easily navigate to other pages, and services within the program.
+ */
 function Navbar() {
   return (
     <nav className="navbar">

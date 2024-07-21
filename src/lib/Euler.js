@@ -1,3 +1,7 @@
+/**
+ * [next_step(f, t_val, y_val, h)] is the next term in the Euler approximation
+ * of function f, with current position (t_val, y_val) with step-size h.
+ */
 function next_step(f, t_val, y_val, h) {
   let df = f({ t: t_val, y: y_val });
 
@@ -7,6 +11,13 @@ function next_step(f, t_val, y_val, h) {
   return [t_next, y_next];
 }
 
+/**
+ * [Euler(f, t0, y0, dest, step)] is the result of Euler approximation on function 
+ * f, with initial conditions (t0, y0) evaluated at point t = dest and step-size
+ * step. The result of the function is [t_tab, y_tab] where t_tab is an array of 
+ * t-coordinates used for approximation and y_tab is an array of corresponding 
+ * y-values.
+ */
 function Euler(f, t0, y0, dest, step) {
   const h = parseFloat(step);
 

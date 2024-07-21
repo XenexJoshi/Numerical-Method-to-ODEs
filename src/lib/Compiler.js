@@ -1,3 +1,7 @@
+/**
+ * [Token] represents an array of the different symbols that can be handled by
+ * the parser.
+ */
 const Token = [
   [/^\s+/, null],
   [/^-?\d+(?:\.\d+)?/, 'NUMBER'],
@@ -13,6 +17,11 @@ const Token = [
   [/^,/, ','],
 ];
 
+/**
+ * [Lexer] contains methods that takes an input string, and generates an array
+ * corresponding to the classification of symbols based on Token that is passed
+ * on to the parser for parsing.
+ */
 class Lexer {
   #tokens;
   #cursor;
@@ -44,6 +53,11 @@ class Lexer {
   }
 }
 
+/**
+ * [Parser] takes in a collection of tokens as input, and parses them accordingly
+ * as mathematical expression that is evaluated while following an order of 
+ * operation as per BODMAS rule.
+ */
 class Parser {
   #tokenizer;
   #next;
@@ -173,6 +187,10 @@ class Parser {
   }
 }
 
+/**
+ * [environment] classifies different symbols to their corresponding functionalities
+ * or values for evaluation by compile.
+ */
 class Environment {
   #fields;
   #parent;
@@ -232,6 +250,10 @@ const evaluate = (node, env) => {
   }
 }
 
+/**
+ * [global] is an array of standard mathematical functions supported by the compile
+ * method.
+ */
 const global = new Environment({
   sin: Math.sin,
   cos: Math.cos,
@@ -248,6 +270,11 @@ const global = new Environment({
   e: Math.E,
 });
 
+/**
+ * [compile(str)] is the functional evaluation of the mathematical expression
+ * in string str, determined by using Lexer and Parser to convert string into
+ * an AST, and recognizing functions using global environment.
+ */
 const compile = (string) => {
   const lexer = new Lexer(Token);
   const parser = new Parser(lexer);

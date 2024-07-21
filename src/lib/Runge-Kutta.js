@@ -1,3 +1,7 @@
+/**
+ * [getK1(f, t_val, y_val)] is the first-step approximation term in the Runge-Kutta
+ * approximation of the function f starting at point (t_val, y_val).
+ */
 function getK1(f, t_val, y_val) {
   return f({
     t: t_val,
@@ -5,6 +9,11 @@ function getK1(f, t_val, y_val) {
   });
 }
 
+/**
+ * [getKi(f, t_val, y_val, h, kb)] is the second/third-step approximation term in the 
+ * Runge-Kutta approximation of the function f starting at point (t_val, y_val)
+ * , with step-size h and last-term kb.
+ */
 function getKi(f, t_val, y_val, h, kb) {
   return f({
     t: (t_val + (h / 2)),
@@ -12,6 +21,11 @@ function getKi(f, t_val, y_val, h, kb) {
   });
 }
 
+/**
+ * [getK4(f, t_val, y_val, h, kb)] is the fourth-step approximation term in the 
+ * Runge-Kutta approximation of the function f starting at point (t_val, y_val), 
+ * with step-size h and last-term kb.
+ */
 function getK4(f, t_val, y_val, h, kb) {
   return f({
     t: (t_val + h),
@@ -19,6 +33,11 @@ function getK4(f, t_val, y_val, h, kb) {
   })
 }
 
+/**
+ * [next_step(f, t_val, y_val, h)] is the next term in the Runge-Kutta 
+ * approximation of function f, with current position (t_val, y_val) with 
+ * step-size h.
+ */
 function next_step(f, t_val, y_val, h) {
   let k1 = getK1(f, t_val, y_val);
   let k2 = getKi(f, t_val, y_val, h, k1);
@@ -31,6 +50,13 @@ function next_step(f, t_val, y_val, h) {
   return [t_next, y_next];
 }
 
+/**
+ * [Runge-Kutta(f, t0, y0, dest, step)] is the result of Runge-Kutta
+ * approximation on function f, with initial conditions (t0, y0) evaluated at
+ * point t = dest and step-size step. The result of the function is [t_tab, y_tab]
+ * where t_tab is an array of t-coordinates used for approximation and y_tab is
+ * an array of corresponding y-values.
+ */
 function Runge_Kutta(f, t0, y0, dest, step) {
   const h = parseFloat(step);
 

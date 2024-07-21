@@ -1,6 +1,8 @@
-/* [About] is the page component of the About page that contains descriptions
-of the numerical-methods program, along with references for further studies for
-the users. */
+/** 
+ * [About] is the page component of the About page that contains descriptions
+ * of the numerical-methods program, along with references for further studies for
+ * the users.
+ */
 function About() {
   return (
     <>
