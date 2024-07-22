@@ -16,6 +16,15 @@ The test cases for the compiler, and the base code for each numerical method is 
 component is placed in src/components, and the implementation for numerical methods are placed in src/lib folder.
 
 Required modules before running program:
-  react-plotly.js
-  react-router-dom
-  vitest
+
+    react-plotly.js
+    react-router-dom
+    vitest
+
+References:
+
+Euler method: https://en.wikipedia.org/wiki/Euler_method
+
+Runge-Kutta method: https://en.wikipedia.org/wiki/Euler_method
+
+Adams-Bashforth method: https://en.wikipedia.org/wiki/Linear_multistep_method
